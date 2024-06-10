@@ -104,6 +104,26 @@
             "library": "all"
         },
         {
+            "key": "field_66670a3b14024",
+            "label": "Tekst w przycisku nad numerem telefonu",
+            "name": "text_in_btn_header",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6666aaefb3362",
             "label": "Górna lista",
             "name": "top_list_header",
@@ -342,5 +362,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718005319
+    "modified": 1718028952
 }

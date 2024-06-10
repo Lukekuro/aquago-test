@@ -1,30 +1,19 @@
 .btn {
 	@include tr;
-	height: rem(44);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: rem(12);
+	gap: rem(10);
 	background-color: $primary;
 	color: $w;
-	font-size: rem(16);
+	font-size: rem(15);
 	font-weight: 700;
 	line-height: 1;
 	border: rem(1) solid $primary;
 	border-radius: $radius;
-	padding: 0 rem(16);
+	padding: clamp-rem(14, 18) clamp-rem(28, 43);
 	text-align: center;
 	cursor: pointer;
-
-	@include min(lg) {
-		font-size: rem(18);
-		height: rem(50);
-		padding: 0 rem(24);
-	}
-
-	@include min(xl) {
-		padding: 0 rem(38);
-	}
 
 	@include hover {
 		background-color: transparent;
@@ -100,23 +89,13 @@
 	}
 
 	&-sm {
-		height: rem(40);
 		font-size: rem(14);
-		padding: 0 rem(20);
+		padding: rem(12, 20);
 	}
 
 	&-lg {
-		height: rem(50);
-		font-size: rem(18);
-
-		@include min(lg) {
-			height: rem(54);
-			font-size: rem(20);
-		}
-
-		@include min(xl) {
-			padding: 0 rem(32);
-		}
+		font-size: clamp-rem(18, 20);
+		padding: clamp-rem(16, 20) clamp-rem(35, 50);
 	}
 }
 

@@ -171,3 +171,16 @@ $color-array: (
 .fw-900 {
 	font-weight: 900;
 }
+
+.a-white-to-secondary-color {
+	color: $w;
+	transition: color $time;
+	
+	@include hover {
+		color: $secondary;
+	}
+
+	@include focus-active-max {
+		color: $secondary;
+	}
+}

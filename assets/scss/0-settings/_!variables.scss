@@ -1,9 +1,11 @@
 // Colors -------------------------------------------
-$primary: #df0000;
+$primary: #17648B;
 $primary-hover: darken($primary, 10%);
-$secondary: #38bdf8;
+$secondary: #A8B693;
 $secondary-hover: darken($secondary, 8%);
+$primary-light: #DCF0FF;
 
+$blue-45: rgba(#557E93, .45);
 // Bootstrap v5.3.0 fix (dark mode support)
 $enable-dark-mode: false;
 
@@ -19,8 +21,8 @@ $orange: #f56e28;
 $yellow: #F2C94C;
 $blue: #00a0d2;
 
-$color-text: #202634;
-$color-heading: #202634;
+$color-text: #0E1A23;
+$color-heading: #0E1A23;
 $color-link: $primary;
 $color-link-hover: $primary-hover;
 
@@ -36,19 +38,19 @@ $guten-colors: (
 );
 
 // Fonts -------------------------------------------
-$font-text: 'Arial', sans-serif;
-$font-heading: 'Arial', sans-serif;
+$font-text: 'Figtree', sans-serif;
+$font-heading: 'Figtree', sans-serif;
 
 $font-code: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-pre: "Courier 10 Pitch", Courier, monospace;
 
 
 // Typography -------------------------------------------
-$font-size-base: 16; // Assumes the browser default (typically 16px)
+$font-size-base: 15; // Assumes the browser default (typically 16px)
 $font-weight-base: 400;
 $line-height-base: 1.6;
 
-$radius: rem(5); // global border-radius (can be 0, but need to keep it)
+$radius: rem(37); // global border-radius (can be 0, but need to keep it)
 
 
 // Transitions -------------------------------------------
@@ -78,7 +80,7 @@ $container-max-widths: (
 	xs: 100%,
 	md: 100%,
 	lg: 100%,
-	xl: 1400px,
+	xl: 1425px,
 );
 
 // Container padding
@@ -105,10 +107,6 @@ $container-fluid-max-width: 1920px;
 		}
 	}
 
-	--header-height: #{rem(100)}; // needed for fixed header
-	--header-scrolled-height: #{rem(70)}; // needed for fixed header
-
-	// from high header
-	// --header-height: #{rem(170)}; // needed for fixed header
-	// --header-height-xl: #{rem(180)}; // needed for fixed header from xl
+	--header-height: #{rem(155)}; // needed for fixed header
+	--header-scrolled-height: #{rem(102)}; // needed for fixed header
 }

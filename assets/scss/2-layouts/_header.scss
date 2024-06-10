@@ -1,48 +1,122 @@
 .site-header {
 	width: 100%;
 	height: var(--header-height);
-	background-color: $w;
+	background-color: $primary;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 100;
-	transition: background-color $time, height $time;
+	transition: transform $time, box-shadow $time;
+	border-radius: 0 0 rem(85);
 
-	.has-hero:not(.is-scrolled) & {
-		background-color: transparent;
-	}
-
-	//IF you use only scroll down  - edit1
-	.is-scrolled & {
-		height: var(--header-scrolled-height);
-		box-shadow: 0 10px 10px rgba($b, 0.1);
-	}
-
-	//ELSE - if you use scroll up and down - edit1
-	// .scroll-down & {
-	// 	transform: translate3d(0, - rem(105), 0);
-
-	// 	@include min(lg) {
-	// 		transform: translate3d(0, - rem(110), 0);
-	// 	}
+	// @include min(xl) {
+	// 	height: var(--header-height-xl); //edit1
 	// }
 
-	// .scroll-down &,
-	// .scroll-up & {
-		// box-shadow: 0 rem(10 10) rgba($b, 0.1);
-	// }
+	.scroll-down & {
+		transform: translate3d(0, - rem(45), 0);
 
-	> .container {
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		gap: rem(30);
+		@include min(lg) {
+			transform: translate3d(0, - rem(55), 0);
+		}
+	}
+
+	.scroll-down &,
+	.scroll-up & {
+		box-shadow: 0 rem(10 10) rgba($b, 0.1);
 	}
 
 	.site-logo {
-		margin-right: auto;
+		position: relative;
 		z-index: 3;
+		margin-top: rem(35);
+	}
+
+	.top-header {
+		border-bottom: rem(1) solid $blue-45;
+
+		.container {
+			display: flex;
+			flex-direction: column;
+
+			@include min(md) {
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+		}
+		
+		&__left, &__right {
+			display: flex;
+			align-items: center;
+			gap: rem(50);
+
+			& > span,
+			& > .contact-email {
+				position: relative;
+				padding: rem(15 0);
+				color: $w;
+				font-size: rem(13);
+
+				&:after {
+					position: absolute;
+					content: '';
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: - rem(25);
+					border-left: rem(1) solid $blue-45;
+				}
+			}
+
+			& > span:first-of-type:after {
+				display: none;
+			}
+
+			& > .contact-email {
+				@extend .a-white-to-secondary-color;
+			}
+		}
+	}
+
+	.bottom-header {
+		.container {
+			display: flex;
+			gap: rem(20);
+			
+			@include min(lg) {
+				justify-content: space-between;
+			}
+		}
+
+		&__right {
+			display: flex;
+			align-items: center;
+			gap: clamp-rem(30, 55);
+			margin: rem(19 0);
+
+			@include min(lg) {
+				height: rem(65);
+			}
+		}
+	}
+
+	.number-phone {
+		padding: rem(16) rem(20);
+		min-width: rem(200);
+		max-height: rem(65);
+
+		svg {
+			width: rem(16);
+			height: rem(16);
+		}
+
+		&__block {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: rem(3);
+		}
 	}
 }
 
@@ -51,22 +125,28 @@
 	display: block;
 	line-height: 0;
 	transition: opacity $time;
+	border: rem(2) solid $primary;
+	border-radius: 50%;
 
 	img {
 		width: auto;
-		height: rem(50);
+		height: rem(133);
 	}
 }
 
 // Mobile menu toggle
 .icon-burger {
-	flex-shrink: 0;
 	display: inline-block;
+	flex-shrink: 0;
 	width: rem(30);
 	height: rem(20);
 	cursor: pointer;
 	position: relative;
 	z-index: 110;
+
+	@include min(lg) {
+		display: none;
+	}
 
 	.is-menu-open & {
 		i {
@@ -74,10 +154,12 @@
 
 			&:before {
 				transform: rotate(-45deg) translateY(rem(-4));
+				background-color: $primary;
 			}
 
 			&:after {
-				transform: rotate(45deg) translateY(rem(4));
+				transform: rotate(47deg) translateY(rem(4));
+				background-color: $primary;
 			}
 		}
 	}
@@ -85,12 +167,13 @@
 	i {
 		display: block;
 		width: 100%;
-		height: 2px;
-		background-color: $primary;
+		height: rem(3);
+		background-color: $w;
 		position: absolute;
-		top: calc(50% - 1px);
+		top: calc(50% - rem(1));
 		left: 0;
 		transition: transform $time;
+		border-radius: rem(4);
 
 		&:before,
 		&:after {
@@ -98,11 +181,12 @@
 			content: '';
 			display: block;
 			width: 100%;
-			height: 2px;
-			background-color: $primary;
+			height: rem(3);
+			background-color: $w;
 			transform-origin: right center;
 			position: absolute;
 			right: 0;
+			border-radius: rem(4);
 		}
 
 		&:before {
