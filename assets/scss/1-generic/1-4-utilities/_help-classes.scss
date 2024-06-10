@@ -1,0 +1,173 @@
+// sass-lint:disable no-important
+
+// Visibility
+@each $bp in map-keys($grid-breakpoints) {
+	.hidden-#{$bp}-up {
+		@media (min-width: map-get($grid-breakpoints, $bp)) {
+			display: none !important;
+		}
+	}
+
+	.visible-#{$bp}-up {
+		$bp_max: map-get($grid-breakpoints, $bp) - 1;
+		@media (max-width: $bp_max) {
+			display: none !important;
+		}
+	}
+}
+
+.d-none {
+	display: none !important;
+}
+
+// Text alignment
+.text-justify  { text-align: justify !important; }
+.text-wrap     { white-space: normal !important; }
+.text-nowrap   { white-space: nowrap !important; }
+.text-truncate { @include text-truncate; }
+
+.text-left   { text-align: left !important; }
+.text-right  { text-align: right !important; }
+.text-center { text-align: center !important; }
+
+// Responsive alignment
+@each $bp in map-keys($grid-breakpoints) {
+	@media (min-width: map-get($grid-breakpoints, $bp)) {
+		.text-#{$bp}-left   { text-align: left !important; }
+		.text-#{$bp}-right  { text-align: right !important; }
+		.text-#{$bp}-center { text-align: center !important; }
+	}
+}
+
+// Text transformation
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Colors
+$color-array: (
+				primary: $primary,
+				secondary: $secondary,
+				white: $w,
+				black: $b,
+				grey: $grey,
+);
+@each $color-name, $color-value in $color-array {
+	#{'.bg-' + $color-name} {
+		background-color: $color-value !important;
+	}
+	#{'.color-' + $color-name} {
+		color: $color-value !important;
+	}
+}
+
+// Images
+.img-cover {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.img-contain {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: contain !important;
+}
+
+// Text only for screen readers.
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
+
+	&:focus {
+		font-size: rem(14);
+		background-color: #f1f1f1;
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		clip: auto !important;
+		clip-path: none;
+		color: $b;
+		display: block;
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: rem(15 23 14);
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; // Above WP toolbar.
+	}
+}
+
+.no-scroll {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	overscroll-behavior: none;
+}
+
+.overflow-hidden {
+	overflow: hidden !important;
+}
+
+.disabled {
+	pointer-events: none !important;
+}
+
+.d-flex-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.fw-100 {
+	font-weight: 100;
+}
+
+.fw-200 {
+	font-weight: 200;
+}
+
+.fw-300 {
+	font-weight: 300;
+}
+
+.fw-400 {
+	font-weight: normal;
+}
+
+.fw-500 {
+	font-weight: 500;
+}
+
+.fw-600 {
+	font-weight: 600;
+}
+
+.fw-700 {
+	font-weight: 700;
+}
+
+.fw-800 {
+	font-weight: 800;
+}
+
+.fw-900 {
+	font-weight: 900;
+}

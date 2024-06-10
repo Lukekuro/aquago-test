@@ -1,0 +1,103 @@
+// Admin variables:
+$grey-border: #ccc;
+$grey-text: #999;
+
+html :where(.editor-styles-wrapper) {
+	@import "0-settings/*";
+	@import "1-generic/1-1-base/*.scss";
+	@import "1-generic/1-2-typography/*.scss";
+
+	background-color: $w; // Fallback for when there is no custom background color defined.
+	color: $b;
+	font-size: clamp-rem(17, 20);
+	font-family: $font-text;
+	font-weight: $font-weight-base;
+	line-height: $line-height-base;
+	padding: 0;
+}
+
+.wp-block {
+	max-width: unset;
+
+	&.is-block-collapsed {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	&:not(.is-selected),
+	&.acf-block-preview {
+		// Variables, global CSS variables, fonts, mixins
+		@import "0-settings/*";
+
+		// Generic styles, includes:
+		// 1 - normalizing styles, HTML tags and core WP styles;
+		// 2 - headings, editor style formats, styled HTML tags;
+		// 3 - inputs, buttons;
+		// 4 - Bootstrap utilities and helper classes
+		@import "1-generic/**/*.scss";
+
+		// Bootstrap grid, header, footer, sidebar, navigation, etc.
+		@import "2-layouts/*";
+
+		// Plugins
+		@import "3-vendors/fancybox";
+		@import "3-vendors/gravity-forms";
+		@import "3-vendors/swiper-bundle";
+		// note: do not include 'gsani' here to prevent hidden content issue
+
+		// Gutenberg blocks
+		@import "4-blocks/*";
+
+		// Specific UI components
+		@import "5-components/*";
+
+		// Pages, singles, archives, page templates
+		@import "6-templates/*";
+	}
+
+	&.is-selected {
+		position: relative;
+		z-index: 10;
+	}
+}
+
+.editor-styles-wrapper {
+	overflow-x: hidden;
+}
+
+.wp-more-tag {
+	height: 16px !important;
+}
+
+// Wider block sidebar area
+@media (min-width: 782px) {
+	.interface-complementary-area {
+		width: 370px;
+	}
+}
+
+// Extra visual helper styles:
+.block-editor-inner-blocks:not(:has(.block-editor-inner-blocks)) {
+	position: relative;
+	border: 1px dashed $grey-border;
+	padding: 10px;
+	min-height: 100px;
+
+	&:after {
+		content: 'Inner Block';
+		background-color: #fff;
+		display: inline-block;
+		font-size: 12px;
+		line-height: 1;
+		color: $grey-border;
+		padding: 3px 5px;
+		border: 1px dashed $grey-border;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+[data-rich-text-placeholder] {
+	color: rgba(#000, 0.25);
+}

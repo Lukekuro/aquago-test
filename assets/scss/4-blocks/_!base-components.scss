@@ -1,0 +1,85 @@
+// Base blocks
+.c-block {
+	margin-bottom: clamp-rem(80, 120);
+
+	&--none {
+		margin: 0;
+	}
+
+	&--top,
+	&--both {
+		margin-top: clamp-rem(80, 120);
+	}
+
+	&--top {
+		margin-bottom: 0;
+	}
+
+	&--padding {
+		padding: clamp-rem(40, 70) 0;
+	}
+
+	&--padding-big {
+		padding: clamp-rem(60, 120) 0;
+	}
+}
+
+// Title
+.c-title {
+	display: block;
+	margin-bottom: 1em;
+}
+
+// Image
+.c-image {
+	display: block;
+	line-height: 0;
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		padding-bottom: 70%;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+
+.c-list { //edit1
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: rem(20);
+
+    @include min(md) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @include min(lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    a {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.c-tab { //edit1 
+	background-color: $secondary;
+	padding: clamp-rem(15, 20) 0;
+	margin-bottom: clamp-rem(30, 50);
+	color: $w;
+
+	.container, 
+	.acf-innerblocks-container {
+		@extend .editor;
+	}
+}

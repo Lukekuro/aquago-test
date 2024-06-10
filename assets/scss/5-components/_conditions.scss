@@ -1,0 +1,45 @@
+
+.conditions {
+	display: flex;
+	flex-direction: column;
+	gap: rem(30);
+	width: fit-content;
+
+	&__block {
+		display: flex;
+		flex-direction: column;
+		gap: rem(25);
+		width: fit-content;
+	}
+
+	&__title {
+		font-size: rem(20);
+		font-weight: 700;
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: rem(30);
+		width: fit-content;
+
+		//if
+		img {
+			max-width: rem(60);
+		}
+
+		//else //edit1
+		// img {
+		// 	max-width: rem(100);
+		// 	min-width: rem(40);
+		// 	min-height: rem(25);
+		// 	width: auto;
+
+		// 	@include min(md) {
+		// 		min-height: rem(50);
+		// 		min-width: rem(50);
+		// 	}
+		// }
+	}
+}

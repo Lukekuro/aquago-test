@@ -1,0 +1,130 @@
+
+// <!-- Title and icon (search-form is hidden) - click on js-search -> display search-form -->
+// .search {
+// 	position: relative;
+// 	display: flex;
+// 	align-items: center;
+
+// 	span {
+// 		padding-right: rem(15);
+// 		display: none;
+// 		line-height: rem(22);
+
+// 		@include min(md) {
+// 			display: inline-block;
+// 		}
+// 	}
+
+// 	&__items {
+// 		display: flex;
+// 		cursor: pointer;
+
+// 		@include hover {
+// 			svg {
+// 				stroke: $primary;
+// 			}
+// 		}
+
+// 		@include focus-active-max {
+// 			svg {
+// 				stroke: $primary;
+// 			}
+// 		}
+// 	}
+
+// 	&.active {
+// 		.search__items {
+// 			display: none;
+// 		}
+
+// 		.search-form {
+// 			width: 100%;
+// 			opacity: 1;
+// 		}
+// 	}
+
+// 	//if you have display on lg and hide on mobile
+// 	@include max(lg) {
+// 		.search-form {
+// 			width: 0;
+// 			line-height: 0;
+// 			overflow-x: hidden;
+// 			transition: width 0.3s ease-in-out;
+// 			z-index: 2;
+// 			opacity: 0;
+// 			position: sticky;
+// 		}
+// 	}
+// 	//else
+// 	// .search-form {
+// 	// 	width: 0;
+// 	// 	line-height: 0;
+// 	// 	overflow-x: hidden;
+// 	// 	transition: width 0.3s ease-in-out;
+// 	// 	z-index: 2;
+// 	// 	opacity: 0;
+// 	// 	position: sticky;
+// 	// }
+// 	//end
+	
+// }
+
+
+// STANDARD SEARCH FORM!!!!!!!!!!!!!!!!!!!
+.search-form {
+	@include tr;
+	width: 100%;
+	background-color: $w;
+	overflow: hidden;
+	position: relative;
+
+	&__input {
+		width: 100%;
+		padding-right: rem(40);
+		
+		@include max(md) {
+			font-size: clamp-rem(14, 16);
+		}
+	}
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill::first-line {
+		-webkit-box-shadow: 0 0 0px 1000px $w inset;
+		-webkit-text-fill-color: $color-text;
+	}
+
+	&__submit {
+		display: inline-flex;
+		width: rem(35);
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+
+		@include hover {
+			svg {
+				stroke: $primary;
+			}
+		}
+
+		@include focus-active-max {
+			svg {
+				stroke: $primary;
+			}
+		}
+	}
+}
+
+.icon-search {
+	width: rem(23);
+	height: rem(23);
+	stroke: $color-text;
+}

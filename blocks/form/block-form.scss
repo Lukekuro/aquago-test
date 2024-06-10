@@ -1,0 +1,41 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-form {
+    &__map {
+        position: relative;
+        margin-bottom: rem(40);
+
+        @include min(lg) {
+            margin-bottom: rem(60);
+        }
+
+        &__info {
+            background-color: $w;
+            padding: clamp-rem(15, 30) clamp-rem(25, 45);
+            margin: 0 clamp-rem(15, 60);
+            border: rem(1) solid $grey-border;
+
+            @include min(lg) {
+                width: auto;
+                position: absolute;
+                right: 0;
+                bottom: - rem(50);
+                max-width: rem(500);
+            }
+
+            @include max(lg) {
+                margin-top: rem(-200);
+            }
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+}
+
+// WP admin only styles:
+// .wp-admin .b-form a {
+//     pointer-events: none;
+// }
+

@@ -1,0 +1,43 @@
+    @import "../../assets/scss/0-settings/*";
+
+.b-features {
+    // margin: clamp-rem(50, 60) 0 clamp-rem(50, 70); edit1
+
+    .row:last-child {
+        margin-bottom: 0;
+    }
+
+    &__list {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: rem(20);
+    }
+
+    &__item {
+        text-align: center;
+        max-width: rem(100);
+
+        @include min(md) {
+            max-width: rem(150);
+        }
+
+        &__img {
+            width: rem(50);
+            height: rem(50);
+            margin-bottom: rem(25);
+        }
+
+        img {
+            max-width: rem(50);
+            max-height: rem(50);
+        }
+    }
+}
+
+// WP admin only styles:
+body.wp-admin .wp-block.acf-block-preview .b-features {
+	opacity: 1;
+    transform: none;
+}

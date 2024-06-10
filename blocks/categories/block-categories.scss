@@ -1,0 +1,53 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-categories {
+    .list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: rem(20);
+        
+        @include min(lg) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    a {
+        text-align: center;
+
+        @include hover {
+            img {
+                transform: scale(1.1);
+            }
+
+            span {
+                color: $primary;
+            }
+        }
+    }
+
+    .img {
+        overflow: hidden;
+
+        &:before {
+            padding-bottom: 100%;
+        }
+    } 
+
+    img {
+        transition: transform $time;
+        margin-bottom: rem(10);
+    }
+
+    span {
+        transition: color $time;
+        color: $color-text;
+    }
+}
+
+// WP admin only styles:
+.wp-admin .acf-block-preview .b-categories .list a {
+    pointer-events: none;
+    opacity: 1;
+    transform: none;
+}
+

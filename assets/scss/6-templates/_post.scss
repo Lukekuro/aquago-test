@@ -1,0 +1,85 @@
+.post {
+	&-thumbnail {
+		margin-bottom: rem(50);
+	}
+
+	&-header {
+		margin-bottom: rem(50);
+	}
+
+	&-content,
+	&-navigation,
+	&-related {
+		margin-bottom: clamp-rem(70, 100);
+	}
+}
+
+.nav-links {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: rem(20);
+
+	@include min(lg) {
+		flex-direction: row;
+		gap: rem(50);
+	}
+}
+
+
+.share {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	gap: rem(30);
+	margin-top: rem(50);
+
+	h4 {
+		margin-bottom: 0;
+		font-weight: 600;
+	}
+
+	&-list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: rem(35);
+	
+		a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: $primary;
+			border-radius: $radius;
+			border: rem(1) solid $primary;
+			width: rem(40);
+			height: rem(40);
+	
+			svg {
+				width: rem(22);
+				height: rem(22);
+				fill: $w;
+				transition: fill $time;
+			}
+	
+			&.icon-fb {
+				justify-content: flex-end;
+	
+				svg {
+					width: rem(18);
+					height: rem(33);
+				}
+			}
+	
+			@include hover {
+				background-color: $w;
+	
+				svg {
+					fill: $primary;
+				}
+			}
+		}
+	}
+}

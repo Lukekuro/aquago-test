@@ -1,0 +1,61 @@
+.breadcrumbs {
+	color: $grey;
+	font-size: rem(14);
+	font-style: italic;
+	margin-bottom: rem(30);
+
+	a {
+		color: inherit;
+
+		@include hover {
+			color: $primary;
+		}
+
+		@include focus-active-max {
+			color: $primary;
+		}
+	}
+
+	span {
+		span:not(:last-child) {
+			position: relative;
+
+			&:after {
+				position: absolute;
+				content: '';
+				top: 50%;
+				right: rem(-18);
+				width: rem(8);
+				height: rem(5);
+				background: url(../img/angle-down-regular.svg);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: rem(8 5);
+				transform: translateY(-50%) rotateZ(-90deg);
+			}
+		}
+	}
+
+	p {
+		margin: 0;
+
+		> span:first-child {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: rem(30);
+		}
+	}
+
+	.breadcrumb_last {
+		font-weight: 500;
+	}
+
+	.separator {
+		display: inline-block;
+		margin: rem(0 5);
+
+		@include min(md) {
+			margin: rem(0 10);
+		}
+	}
+}

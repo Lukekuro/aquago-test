@@ -1,0 +1,11 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-text {
+	margin: rem(15) 0;
+
+	.medium-width {
+		max-width: rem(940);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

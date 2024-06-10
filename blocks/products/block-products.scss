@@ -1,0 +1,10 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-products {
+    ///
+}
+
+body.wp-admin .wp-block.acf-block-preview .b-products .swiper {
+    display: none;
+}
+

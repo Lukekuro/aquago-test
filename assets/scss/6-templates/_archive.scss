@@ -1,0 +1,19 @@
+// Archives
+.archive {
+	&-header {
+		background-color: $secondary;
+		padding: rem(20) 0;
+		margin-bottom: rem(50);
+
+		.page-title {
+			margin-bottom: 0;
+			text-align: center;
+			color: $w;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+

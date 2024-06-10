@@ -1,0 +1,114 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Podstawowy",
+          "slug": "primary",
+          "color": "#1B1F99"
+        },
+        {
+          "name": "Wtórny",
+          "slug": "secondary",
+          "color": "#4DBBDD"
+        },
+        {
+          "name": "Biały",
+          "slug": "white",
+          "color": "#FFFFFF"
+        },
+        {
+          "name":"Czarny (tekst)",
+          "slug": "black-text",
+          "color": "#18181A"
+        },
+        {
+          "name": "Jasny niebieski",
+          "slug": "light-blue",
+          "color": "#F7F8FE"
+        },
+        {
+          "name": "Szary",
+          "slug": "grey",
+          "color": "#E0E0E0"
+        }
+      ],
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false
+    },
+    "typography": {
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "dropCap": false,
+      "fontSizes": [
+        {
+          "name": "Średni (20px)",
+          "slug": "medium",
+          "size": "1rem"
+        },
+        {
+          "name": "Duży (24px)",
+          "slug": "large",
+          "size": "1rem",
+          "fluid": {
+            "min": "1rem",
+            "max": "1.2rem"
+          }
+        },
+        {
+          "name": "Bardzo duży (36px)",
+          "slug": "x-large",
+          "size": "1.3rem",
+          "fluid": {
+            "min": "1.3rem",
+            "max": "1.8rem"
+          }
+        }
+      ]
+    },
+    "blocks":{
+      "core/heading":{
+        "typography":{
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        }
+      },
+      "core/buttons":{
+        "typography":{
+          "customFontSize": false,
+          "fontSizes": []
+        }
+      },
+      "core/button":{
+        "border": {
+          "color": false,
+          "radius": false,
+          "style": false,
+          "width": false
+        },
+        "typography":{
+          "customFontSize": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        }
+      }
+    }
+  }
+}

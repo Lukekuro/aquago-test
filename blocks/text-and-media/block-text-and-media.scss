@@ -1,0 +1,12 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-text-media {
+	// margin: clamp-rem(50, 80) 0; edit1
+
+}
+
+// WP admin only styles:
+.wp-admin .wp-block.acf-block-preview .b-text-media .col-lg-6 {
+	opacity: 1;
+    transform: none;
+}

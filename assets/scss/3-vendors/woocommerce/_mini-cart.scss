@@ -1,0 +1,145 @@
+// Mini cart
+.mini-cart {
+	position: relative;
+
+	&--empty {
+		pointer-events: none;
+	}
+
+	&__total {
+		width: rem(20);
+		height: rem(20);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $red;
+		color: $w;
+		font-size: rem(12);
+		font-weight: 500;
+		border-radius: 50%;
+		position: absolute;
+		top: rem(-7);
+		right: rem(-10);
+	}
+
+	@include hover {
+		.cart-caption {
+			transform: none;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	@include hover {
+		svg {
+			fill: $primary;
+		}
+	}
+
+	@include focus-active-max {
+		svg {
+			fill: $primary;
+		}
+	}
+
+	&.active .cart-caption {
+		transform: none;
+		opacity: 1;
+		visibility: visible;
+		z-index: 20;
+	}
+
+	.icon-cart {
+		width: rem(25);
+		height: rem(25);
+	}
+
+	.btn {
+		text-transform: uppercase;
+		margin: rem(20 10);
+	}
+
+	.cart-caption {
+		position: absolute;
+		opacity: 0;
+		right: 0;
+		width: 80vw;
+		max-width: rem(400);
+		max-height: rem(400);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		visibility: hidden;
+		background-color: $w;
+		border-radius: $radius;
+		border: rem(1) solid $black;
+		top: 100%;
+		transform: translateY(-10px);
+		transition: opacity $time, transform $time, visibility $time;
+		cursor: default;
+		z-index: 5;
+
+		&__list {
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+		}
+
+		&__item {
+			display: flex;
+			justify-content: space-between;
+			border-bottom: rem(1) solid $grey-border;
+			padding: rem(15 12);
+			width: 100%;
+			gap: rem(10);
+		}
+
+		&__block {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+	}
+
+	.product {
+		&-title {
+			font-size: rem(14);
+			color: $b;
+			font-weight: 600;
+	
+			@include hover {
+				color: $primary;
+			}
+		}
+
+		&-price {
+			white-space: nowrap;
+		}
+
+		&-remove {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: rem(20);
+			height: rem(20);
+
+			@include hover {
+				svg path {
+					fill: $red;
+				}
+			}
+
+			@include focus-active-max {
+				svg path {
+					fill: $red;
+				}
+			}
+		
+			svg path {
+				fill: $b;
+				transition: fill $time;
+			}
+		}
+	}
+}

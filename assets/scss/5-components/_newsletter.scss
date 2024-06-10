@@ -1,0 +1,111 @@
+.newsletter {
+    padding: clamp-rem(30, 35) 0 rem(55);
+    margin-top: clamp-rem(70, 90);
+    background-color: $secondary;
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .tnp-subscription {
+            margin: rem(20) 0 0 0;
+    
+            form {
+                display: flex;
+                flex-wrap: wrap;
+    
+                .tnp-field-email {
+                    position: relative;
+                    width: 70%;
+                    margin-bottom: 0;
+                    
+                    label {
+                        position: absolute;
+                        top: 50%;
+                        left: rem(16);
+                        transform: translateY(-50%);
+                        text-transform: uppercase;
+                        color: $grey;
+                        font-weight: 500;
+                        transition: opacity $time;
+                        pointer-events: none;
+
+                        @include min(md) {
+                            left: rem(35);
+                        }
+                    }
+        
+                    input[type="email"] {
+                        @include tr;
+                        background-color: $w;
+                        color: $b;
+                        height: rem(55);
+                        padding: rem(13 16);
+                        border-top-left-radius: $radius;
+                        border-bottom-left-radius: $radius;
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+
+                        @include min(md) {
+                            padding-left: rem(35);
+                        }
+                    }
+                }
+    
+                .tnp-field-button {
+                    width: 30%;
+                    margin-bottom: 0;
+                    
+                    input[type="submit"] {
+                        @extend .btn;
+                        @extend .btn-lg;
+                        text-transform: uppercase;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        width: 100%;
+                        min-width: min-content;
+                        padding: 0 clamp-rem(19, 34); //edit1
+                    }
+                }
+    
+                .tnp-privacy-field {
+                    width: 100%;
+                    order: 3;
+                    margin-bottom: 0;
+                    margin-top: rem(20);
+                    text-align: left;
+    
+                    label {
+                        margin-bottom: 0;
+                        display: flex;
+                        align-items: center;
+                        font-size: rem(12);
+                    }
+    
+                    input[type="checkbox"] {
+                        border-radius: rem(2);
+                        border-color: $grey;
+                        margin-right: rem(10);
+                        min-width: rem(20);
+                        width: rem(20);
+                        height: rem(18);
+                    }
+    
+                    a {
+                        text-decoration: underline;
+                        color: $black;
+    
+                        @include hover {
+                            color: $primary;
+                        }
+
+                        @include focus-active-max {
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

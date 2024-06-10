@@ -1,0 +1,60 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-logos {
+	//padding edit1
+	
+	.main-list {
+		overflow-x: hidden;
+
+		@include min(lg) {
+			margin-top: rem(40);
+		}
+	}
+
+	.list {
+		display: flex;
+		align-items: center;
+		transition-timing-function : linear;
+
+		&__item {
+			transition: transform;
+			min-width: rem(40);
+			display: flex;
+			justify-content: center;
+			min-width: fit-content;
+
+			img {
+				max-height: rem(100);
+				max-width: rem(180);
+				transform: scale(0.5);
+
+				@include min(md) {
+					transform: scale(0.7);
+				}
+				
+				@include min(lg) {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}
+
+// WP admin only styles:
+body.wp-admin .wp-block.acf-block-preview .b-logos {
+	opacity: 1;
+    transform: none;
+
+	.main-list .list {
+		gap: rem(20);
+		justify-content: center;
+		
+		&__item {
+			width: fit-content;
+
+			a {
+				pointer-events: none;
+			}
+		}
+	}
+}

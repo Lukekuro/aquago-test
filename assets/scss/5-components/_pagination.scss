@@ -1,0 +1,59 @@
+.pagination {
+	@extend .c-block--top;
+
+	ul {
+		@include unstyled-list;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: rem(8);
+		border: none;
+
+		li {
+			border: none;
+
+			a, span {
+				@include tr;
+				min-width: rem(36);
+				height: rem(36);
+				background-color: $w;
+				color: $b;
+				font-size: rem(16);
+				line-height: 1;
+				border: rem(1) solid $b;
+				border-radius: $radius;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: rem(0 7);
+
+				&.current {
+					&:not(.dots) {
+						background-color: $primary;
+						color: $w;
+						border-color: $primary;
+					}
+				}
+
+				@include hover {
+					background-color: $w;
+					color: $primary;
+					border-color: $primary;
+				}
+
+				@include focus-active-max {
+					background-color: $w;
+					color: $primary;
+					border-color: $primary;
+				}
+
+				@include max(lg) {
+					&:hover {
+						background-color: $w;
+					}
+				}
+			}
+		}
+	}
+}

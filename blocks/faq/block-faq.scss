@@ -1,0 +1,38 @@
+@import "../../assets/scss/0-settings/*";
+
+.b-faq {
+	//margin edit1
+	
+	&__item {
+		border-bottom: rem(1) solid $grey-border;
+		transition: border-color $time;
+
+		&:not(:last-child) {
+			margin-bottom: rem(10);
+		}
+
+		&.is-open {
+			border-color: $b;
+		}
+
+		@include hover {
+			border-color: $b;
+		}
+
+		&-title {
+			display: flex;
+			justify-content: space-between;
+			gap: rem(16);
+			padding: rem(20);
+			margin: 0;
+
+			svg {
+				flex-shrink: 0;
+			}
+		}
+
+		&-content {
+			padding: rem(0 20 20);
+		}
+	}
+}

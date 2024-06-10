@@ -1,0 +1,318 @@
+// Header menu
+/// edit1 - use if you have high header and scroll up-down
+.main-nav-1 { //edit1 remove -1
+	@include max(xl) {
+		width: 100%;
+		height: calc( var(--vh, 1vh) * 100 - var(--header-height)); // tweak for mobiles
+		background-color: $w;
+		overflow-y: auto;
+		padding: rem(20) 0 rem(30);
+		position: fixed;
+		top: 0;
+		right: 0;
+		opacity: 0;
+		visibility: hidden;
+		z-index: -1;
+		margin-top: var(--header-height);
+	}
+
+	@include min(xl) {
+		display: flex;
+		align-items: center;
+	}
+
+	.is-menu-open & {
+		opacity: 1;
+		visibility: visible;
+		z-index: 2;
+	}
+}
+
+.main-menu {
+	@include unstyled-list;
+	display: flex;
+	flex-direction: column;
+	gap: rem(20);
+
+	@include min(xl) {
+		flex-direction: row;
+		align-items: center;
+		gap: clamp-rem(20, 35);
+	}
+
+	&__container {
+		@extend .container;
+
+		@include min(xl) {
+			max-width: unset;
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+
+	//IF -> li and submenu (depth - 2) //edit1
+	> li {
+		flex-shrink: 0;
+		display: block;
+		position: relative;
+
+		@include min(xl) {
+			display: flex;
+			align-items: center;
+		}
+
+		&.menu-item-has-children {
+			padding-right: rem(20);
+			position: relative;
+			cursor: pointer;
+
+			&:after {
+				@include tr;
+				content: '';
+				width: rem(16);
+				height: rem(14);
+				background: url(../img/angle-down-regular.svg);
+				background-repeat: no-repeat;
+				background-position: center;
+				position: absolute;
+				top: 0.6em;
+				right: 0;
+
+				@include min(xl) {
+					top: calc(50% - rem(7));
+				}
+			}
+
+			@include hover {
+				.sub-menu {
+					transform: translateY(0);
+					opacity: 1;
+					visibility: visible;
+				}
+
+				&:after {
+					transform: rotateZ(180deg);
+				}
+			}
+
+			&.active {
+				&:after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+		
+		&.current_page_item > a {
+			color: $primary;
+		}
+
+		> a {
+			color: $color-text;
+
+			@include hover {
+				color: $primary;
+			}
+		}
+	}
+
+	.sub-menu {
+		@include unstyled-list;
+		width: 100%;
+		padding-top: rem(5);
+		display: none;
+
+		@include min(xl) {
+			display: block;
+			width: rem(200);
+			background-color: $primary;
+			padding-bottom: rem(5);
+			position: absolute;
+			top: 100%;
+			left: 0;
+			transform: translateY(rem(10));
+			opacity: 0;
+			visibility: hidden;
+			transition: all $time;
+		}
+
+		li {
+			width: 100%;
+			padding: rem(5 10 5 15);
+
+			a {
+				display: block;
+				width: 100%;
+				color: $color-text;
+				transition: color $time, text-shadow $time;
+
+				@include hover {
+					color: $primary;
+				}
+
+				@include focus-active-max {
+					color: $primary;
+				}
+
+				@include min(xl) {
+					color: $w;
+
+					&:hover {
+						color: $w;
+						text-shadow: -0.025em 0 0.025em $w, 0.025em 0 0.025em $w;
+					}
+				}
+			}
+		}
+	}
+
+	//ELSE IF -> li and submenu (depth - 3) //edit1
+
+	// > li {
+	// 	&.current_page_item > a {
+	// 		color: $primary;
+	// 	}
+
+	// 	> a {
+	// 		color: $color-text;
+	// 		font-weight: 700;
+
+	// 		@include hover {
+	// 			color: $primary;
+	// 		}
+	// 	}
+	// }
+
+	// > li,
+	// .sub-menu > li {
+	// 	flex-shrink: 0;
+	// 	display: block;
+	// 	position: relative;
+
+	// 	@include min(lg) {
+	// 		display: flex;
+	// 		align-items: center;
+	// 	}
+
+	// 	&.menu-item-has-children {
+	// 		padding-right: rem(20);
+	// 		position: relative;
+	// 		cursor: pointer;
+
+	// 		&:after {
+	// 			@include tr;
+	// 			content: '';
+	// 			width: rem(10);
+	// 			height: rem(10);
+	// 			// if 
+	// 			// icon: chevron down (primary)
+	// 			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z' fill='%23df0000'/%3E%3C/svg%3E") no-repeat 50% / contain;
+	// 			background-repeat: no-repeat;
+	// 			background-position: center;
+	//			//else
+	//			background: url(../img/angle-down-regular.svg) no-repeat center;
+	//			//end
+	// 			position: absolute;
+	// 			top: 0.6em;
+	// 			right: 0;
+
+	// 			@include min(lg) {
+	// 				top: calc(50% - rem(5));
+	// 			}
+	// 		}
+
+	// 		&.active {
+	// 			&:after {
+	// 				transform: rotate(180deg);
+	// 			}
+	// 		}
+
+	// 		@include hover {
+	// 			> .sub-menu {
+	// 				transform: translateY(0);
+	// 				opacity: 1;
+	// 				visibility: visible;
+	// 			}
+
+	// 			&:after {
+	// 				transform: rotateZ(180deg);
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// .sub-menu {
+	// 	@include unstyled-list;
+	// 	width: 100%;
+	// 	padding-top: rem(5);
+	// 	display: none;
+
+	// 	@include min(lg) {
+	// 		display: block;
+	// 		min-width: rem(200);
+	// 		background-color: $primary;
+	// 		padding-bottom: rem(5);
+	// 		position: absolute;
+	// 		top: 100%;
+	// 		left: 0;
+	// 		transform: translateY(rem(10));
+	// 		opacity: 0;
+	// 		visibility: hidden;
+	// 		transition: all $time;
+	// 	}
+
+	// 	li {
+	// 		width: 100%;
+	// 		padding: rem(5 10 5 15);
+
+	// 		a {
+	// 			width: 100%;
+	// 			color: $color-text;
+	// 			transition: color $time, text-shadow $time;
+
+				// @include hover {
+				// 	color: $primary;
+				// }
+				
+				// @include focus-active-max {
+				// 	color: $primary;
+				// }
+
+				// @include min(xl) {
+				// 	color: $w;
+
+				// 	&:hover {
+				// 		color: $w;
+				// 		text-shadow: -0.025em 0 0.025em $w, 0.025em 0 0.025em $w;
+				// 	}
+				// }
+	// 		}
+
+	// 		&.menu-item-has-children {
+	// 			padding-right: rem(20);
+
+	// 			&:after {
+	// 				right: rem(5);
+
+					// @include min(lg) {
+					// 	background: url(../img/angle-down-w.svg) no-repeat center;
+					// }
+	// 			}
+
+	// 			.sub-menu {
+	// 				@include min(lg) {
+	// 					top: 0;
+	// 					left: 100%;
+	// 					transform: translateY(rem(10));
+	// 				}
+	// 			}
+
+				// @include min(xl) {
+				// 	&:hover:after {
+				// 		transform: rotateZ(-90deg);
+				// 	}
+				// }
+	// 		}
+	// 	}
+	// }
+	//END //edit1
+}
