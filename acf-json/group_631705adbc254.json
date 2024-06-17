@@ -1,7 +1,87 @@
 {
     "key": "group_631705adbc254",
-    "title": "Block: Hero - standard",
+    "title": "Block: Hero",
     "fields": [
+        {
+            "key": "field_666ddd4c1f59f",
+            "label": "Kropkowate tło",
+            "name": "dotted_bg",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Włącz",
+            "ui_off_text": "Wyłącz",
+            "ui": 1
+        },
+        {
+            "key": "field_666dde9f1f5a0",
+            "label": "Linia okrągła tła",
+            "name": "line_circle_bg",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Włącz",
+            "ui_off_text": "Wyłącz",
+            "ui": 1
+        },
+        {
+            "key": "field_666ddef01f5a1",
+            "label": "Biało-zielono kółko",
+            "name": "white-green_circle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Włącz",
+            "ui_off_text": "Wyłącz",
+            "ui": 1
+        },
+        {
+            "key": "field_666ddf181f5a2",
+            "label": "Włączyć przycisk „Na dole” na następnej sekcji?",
+            "name": "enable_to_bottom",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Włącz",
+            "ui_off_text": "Wyłącz",
+            "ui": 1
+        },
         {
             "key": "field_63161c5ac7a8e",
             "label": "(Column 8\/12)",
@@ -57,11 +137,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_63161bb0c7a8d",
-            "label": "Typ tła",
-            "name": "background_type",
+            "key": "field_666e9f39ae38a",
+            "label": "Typ kolor tła",
+            "name": "type_bg_color",
             "aria-label": "",
-            "type": "select",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -70,35 +150,44 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "image": "Zdjęcie",
-                "video": "Wideo",
-                "color": "Kolor"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Promieniowy",
+            "ui_off_text": "Płaski",
+            "ui": 1
         },
         {
             "key": "field_63171f88c3ea9",
-            "label": "Kolor nakładki tła",
-            "name": "background_overlay_color",
+            "label": "Pierwszy kolor tła",
+            "name": "one_bg_color",
             "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "rgba(0,0,0,0)",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_666e9e5fae389",
+            "label": "Drugi kolor tła",
+            "name": "two_bg_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_63161bb0c7a8d",
-                        "operator": "!=",
-                        "value": "color"
+                        "field": "field_666e9f39ae38a",
+                        "operator": "==",
+                        "value": "1"
                     }
                 ]
             ],
@@ -107,7 +196,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "rgba(0,0,0,0.4)",
+            "default_value": "rgba(0,0,0,0)",
             "enable_opacity": 1,
             "return_format": "string"
         },
@@ -119,15 +208,7 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_63161bb0c7a8d",
-                        "operator": "==",
-                        "value": "image"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -135,6 +216,7 @@
             },
             "uploader": "",
             "return_format": "id",
+            "library": "all",
             "acfe_thumbnail": 0,
             "min_width": "",
             "min_height": "",
@@ -143,63 +225,7 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "preview_size": "medium_large",
-            "library": "all"
-        },
-        {
-            "key": "field_63161cc4c7a92",
-            "label": "Wideo w tle",
-            "name": "background_video",
-            "aria-label": "",
-            "type": "file",
-            "instructions": "Tylko w formacie MP4.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_63161bb0c7a8d",
-                        "operator": "==",
-                        "value": "video"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "url",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": "mp4",
-            "library": "all"
-        },
-        {
-            "key": "field_631700673c263",
-            "label": "Kolor w tle",
-            "name": "background_color",
-            "aria-label": "",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_63161bb0c7a8d",
-                        "operator": "==",
-                        "value": "color"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "enable_opacity": 0,
-            "return_format": "string"
+            "preview_size": "medium_large"
         }
     ],
     "location": [
@@ -217,7 +243,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": false,
+    "active": true,
     "description": "",
     "show_in_rest": 0,
     "acfe_display_title": "",
@@ -227,5 +253,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718004251
+    "modified": 1718656058
 }

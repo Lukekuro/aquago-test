@@ -2,17 +2,21 @@
 .main-nav {
 	@include max(lg) {
 		width: 100%;
-		height: calc(var(--vh, 1vh) * 100 - var(--header-height)); // tweak for mobiles
+		height: calc(var(--vh, 1vh) * 100 - var(--header-height-mobile) - rem(40)); // tweak for mobiles
 		background-color: $w;
 		overflow-y: auto;
-		padding: rem(20) 0 rem(30);
+		padding-top: rem(20);
 		position: fixed;
 		top: 0;
 		right: 0;
 		opacity: 0;
 		visibility: hidden;
 		z-index: -1;
-		margin-top: var(--header-height);
+		margin-top: calc( var(--header-height-mobile) + rem(40) );
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: rem(20);
 	}
 
 	@include min(lg) {
@@ -32,11 +36,12 @@
 	@include unstyled-list;
 	display: flex;
 	flex-direction: column;
-	gap: clamp-rem(20, 55);
+	gap: rem(10);
 
 	@include min(lg) {
 		flex-direction: row;
 		align-items: center;
+		gap: clamp-rem(20, 55);
 	}
 
 	&__container {
@@ -63,15 +68,27 @@
 		&:before {
 			position: absolute;
 			content: '';
-			width: rem(12);
-			height: rem(12);
+			width: rem(5);
+			height: rem(5);
 			border-radius: 50%;
 			background-color: $secondary;
-			border: rem(2) solid $w;
-			bottom: - rem(6);
-			left: 50%;
-			transform: translateX(-50%);
+			bottom: 50%;
+			left: - rem(9);
+			transform: translateY(50%);
 			display: none;
+
+			@include min(md) {
+				left: - rem(15);
+			}
+
+			@include min(lg) {
+				width: rem(12);
+				height: rem(12);
+				left: 50%;
+				bottom: - rem(6);
+				transform: translateX(-50%);
+				border: rem(2) solid $w;
+			}
 		}
 
 		&.menu-item-has-children {
@@ -126,8 +143,12 @@
 		}
 		
 		> a {
-			color: $w;
 			transition: $time text-shadow;
+			color: $primary;
+
+			@include min(lg) {
+				color: $w;
+			}
 
 			@include hover {
 				text-shadow: 0.1px 0.1px white,

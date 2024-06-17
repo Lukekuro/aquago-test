@@ -94,43 +94,13 @@ jQuery(document).ready(function ($) {
 	} );
 
 	/**
-	 * Focus, blur, keydown on input newsletter -- edit1 if you need add style in input from
-	 */
-	var $input_newsletter = $( '.newsletter-form .tnp-field-email input' );
-	if ( $input_newsletter ) {
-		
-		$input_newsletter.focus( function() {
-			if ( !$( this ).val() ) {
-				$( this ).parent().find( 'label' ).css( 'opacity', 0.2 );
-			}
-		});
-
-		$input_newsletter.blur( function() {
-			if ( !$( this ).val() ) {
-				$( this ).parent().find( 'label' ).css( 'opacity', 1 );
-		  	}
-		});
-
-		$input_newsletter.keydown( function() {
-			$( this ).parent().find( 'label' ).css( 'opacity', 0 );
-		});
+     * Get section and attr href from btn-next-section
+     */
+    var get_section = $('section').eq(1).attr('id');
+	if ( get_section ) {
+		$( '.btn-next-section' ).attr('href', "#" + get_section);
 	}
-
-	/**
-	 * Newsletter acceptance  -- edit1 if you need replace text in acceptance text from newsletter
-	 */
-	if ( $( '.newsletter-form' ) ) {
-		var newsletter_form = $( '.newsletter-form' ),
-		input_checkbox = newsletter_form.find( 'input:checkbox' ),
-		acceptance_text = newsletter_form.find( '.acceptance_newsletter p' ).html();
-		
-		if ( acceptance_text ) {
-			var newLabelContent = $( '<span>' ).html( acceptance_text ).add( input_checkbox );
-
-			input_checkbox.parent().empty().append( newLabelContent );
-		}
-	}
-
+	
 	/**
 	 * FAQ - See more  - edit1 if you need click to see more to show all text 
 	 */
@@ -175,33 +145,6 @@ jQuery(document).ready(function ($) {
 	// JS Lazyload fix for images on the first screen.
 	// This code should run after all the code is initiated.
 	$(window).trigger( 'scroll' );
-
-	// /**
-	//  * Slider Images hero - edit1 if you need, or get the same as swiper-images
-	//  */
-	document.querySelectorAll( '.swiper-hero' ).forEach(slider => {
-		const swiper = new Swiper(slider, {
-			loop: true,
-			// autoplay: {
-			// 	// delay: 2500,
-			// 	disableOnInteraction: false,
-			//  pauseOnMouseEnter: true,
-			// },
-			navigation: {
-				nextEl: slider.querySelector( '.swiper-button-next' ),
-				prevEl: slider.querySelector( '.swiper-button-prev' ),
-			},
-			on: {
-				// lazy load images
-				slideChange: function () {
-					try {
-						lazyLoadInstance.update();
-					} catch (e) {
-					}
-				}
-			}
-		});
-	});
 
 	// /**
 	//  * Slider Reviews - edit1 if you need

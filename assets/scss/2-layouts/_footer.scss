@@ -1,150 +1,204 @@
-//if you use site-footer__menus with span as title edit1  !!!!!!
 .site-footer {
+	position: relative;
 	flex-shrink: 0;
 	width: 100%;
-	padding-top: rem(50);
+	color: $w;
+	background: radial-gradient(circle at 75% 50%, #194f6a 0, $primary-dark 100%); //edit1
+	border-radius: 0 rem(50) 0 0;
+	padding-bottom: clamp-rem(30, 50);
 
-	> .container {
+	@include min(lg) {
+		border-radius: 0 rem(85) 0 0;
+	}
+
+	.footer-vector {
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		width: rem(50);
+		height: rem(53);
+
+		@include min(lg) {
+			width: rem(155);
+			height: rem(163);
+		}
+	}
+
+	&__top {
+		padding: clamp-rem(40, 65) 0;
+		border-bottom: rem(1) solid rgba(#29607C, .45);
+
+		.block {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+			gap: clamp-rem(20, 40);
+		}
+
+		.links {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: clamp-rem(20, 40);
+			justify-content: center;
+		}
+	}
+
+	&__middle {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: rem(35) 0 clamp-rem(80, 115);
 		flex-direction: column;
+		gap: 0 clamp-rem(20, 40);
+
+		@include max(md) {
+			align-items: center;
+		}
+
+		@include min(md) {
+			justify-content: space-evenly;
+			flex-direction: row;
+		}
+
+		@include min(lg) {
+			justify-content: space-between;
+		}
+
+		.info,
+		.footer-links__container,
+		.list {
+			padding-top: rem(20);
+		}
+
+		.info {
+			@include max(md) {
+				text-align: center;
+			}
+		}
+
+		.logo-info {
+			display: flex;
+			flex-wrap: wrap;
+			gap: clamp-rem(40, 80);
+
+			@include max(md) {
+				flex-direction: column;
+				align-items: center;
+				gap: 0;
+			}
+		}
+
+		.footer-links {
+			flex-direction: column;
+			gap: rem(10);
+
+			@include max(md) {
+				align-items: center;
+			}
+		}
+
+		.list {
+			display: flex;
+			flex-direction: column;
+			gap: clamp-rem(20, 25);
+
+			@include max(md) {
+				margin-top: rem(10);
+			}
+
+			img {
+				min-width: rem(21);
+				max-width: rem(50);
+				max-height: rem(50);
+				min-height: rem(43);
+				margin-bottom: rem(8);
+				width: auto;
+				height: revert-layer;
+			}
+
+			a {
+				border-bottom: rem(1) solid $secondary;
+				padding-bottom: rem(10);
+
+				@include max(md) {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+
+			.title-arrow {
+				display: flex;
+				align-items: center;
+				gap: rem(10);
+			}
+
+			svg {
+				width: rem(17);
+				height: rem(9);
+				fill: $secondary;
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
 		align-items: center;
-		gap: rem(35);
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: clamp-rem(20, 40);
+		flex-direction: column;
 
 		@include min(lg) {
 			flex-direction: row;
-			justify-content: space-between;
 		}
-	}
 
-	//edit1 - if you have (title  + ul) in footer then use it  edit1
-	///optional social or condidion - if you don't need then need replace
-	&__block { 
-		display: flex;
-		gap: rem(35);
-		flex-direction: column;
-		flex-wrap: wrap;
-
-		@include min(md) {
-			flex-direction: row;
-			justify-content: space-between;
-		}
-	}
-
-	&__menus {
-		display: flex;
-		flex-direction: column;
-		gap: rem(35);
-
-		@include min(md) {
+		.footer-links {
 			flex-wrap: wrap;
-			flex-direction: row;
-			gap: clamp-rem(60, 175);
+			gap: clamp-rem(10, 30);
+		}
 
+		span,
+		a {
+			font-size: rem(14);
+		}
+
+		a {
+			opacity: 0.7;
 		}
 	}
 
-	.footer-menu {
-		> span {
-			position: relative;
-			display: block;
-			font-weight: 700;
-			font-size: rem(20);
-			margin-bottom: rem(20);
-
-			@include min(md) {
-				margin-bottom: rem(27);
-			}
-	
-			@include max(md) {
-				cursor: pointer;
-
-				&:after {
-					@include tr;
-					content: '';
-					width: rem(16);
-					height: rem(10);
-					background: url(../img/angle-down-regular.svg);
-					background-repeat: no-repeat;
-					background-position: center;
-					position: absolute;
-					top: 0.6em;
-					right: 0;
-				}
-			}
-		}
-
-		&.active {
-			span:after {
-				transform: rotate(180deg);
-			}
-		}
-	}
-
-	ul {
+	.footer-links {
 		@include unstyled-list;
-		display: none;
-
-		@include min(md) {
-			display: block;
-		}
-	
+		display: flex;
+		
 		li {
 			line-height: 1;
-
-			&:not(:last-child) {
-				margin-bottom: rem(15);
-			}
 		}
 	
 		a {
-			display: block;
-			color: $black;
-	
-			@include hover {
-				color: $primary;
-			}
-
-			@include focus-active-max {
-				color: $primary;
-			}
+			@extend .a-white-to-secondary-color;
 		}
 	}
-	//END -  edit1
 
-	&__copyright {
+	.copyright {
 		font-size: rem(14);
-		margin-top: rem(30);
-		text-align: center;
+	}
+
+	.realizations,
+	.images {
+		display: flex;
+		align-items: center;
+		gap: rem(5) clamp-rem(15, 25);
+	}
+	
+	.realizations {
+		justify-content: center;
+		flex-wrap: wrap;
 	}
 }
 
 
-//ELSE - if you use site-footer__menus with span as title then remove this edit1  !!!!!!
 
-// .footer-links {
-// 	@include unstyled-list;
-// 	display: flex;
-// 	flex-direction: column;
-// 	gap: rem(16);
-
-// 	@include min(lg) {
-// 		flex-direction: row;
-// 		gap: rem(30);
-// 	}
-
-// 	li {
-// 		line-height: 1;
-// 	}
-
-// 	a {
-// 		color: $w;
-
-// 		@include hover {
-// 			color: $primary;
-// 		}
-
-// 		@include focus-active-max {
-// 			color: $primary;
-// 		}
-// 	}
-// }

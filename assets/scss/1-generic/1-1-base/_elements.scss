@@ -1,7 +1,11 @@
 html {
 	box-sizing: border-box; // _sanitize.scss already applied this for all other elements
 	scroll-behavior: smooth; // CSS only 'smooth scroll to anchor' functionality
-	scroll-padding-top: var(--header-scrolled-height); // needed for scroll to anchor
+	scroll-padding-top: calc( var(--header-height-mobile) + rem(80) ); // needed for scroll to anchor mobile
+
+	@include min(lg) {
+		scroll-padding-top: calc( var(--header-scrolled-height) + rem(75) ); // needed for scroll to anchor
+	}
 }
 
 *,
@@ -25,7 +29,7 @@ body {
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 	-moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
 	overflow-x: hidden;
-	padding-top: var(--header-height);
+	padding-top: var(--header-height-mobile);
 	transition: padding-top $time;
 
 	&.is-menu-open {
@@ -36,18 +40,9 @@ body {
 		left: 0;
 	}
 
-	// &.is-scrolled { //edit1
-	// 	padding-top: var(--header-scrolled-height);
-	// }
-
-	//edit1 - If JS use scroll up and down then use it and remove "is-scrolled"
-	// &.scroll-down {
-	// 	padding-top: rem(100);
-	// }
-	//edit1 if you have a big header-xl
-	// @include min(lg) {
-	// 	padding-top: var(--header-height-xl);
-	// }
+	@include min(lg) {
+		padding-top: var(--header-height);
+	}
 }
 
 img {
@@ -61,7 +56,7 @@ figure {
 
 p {
 	margin-top: 0;
-	margin-bottom: rem(20);
+	margin-bottom: rem(10);
 }
 
 // Links

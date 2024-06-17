@@ -15,7 +15,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className".
-$classes = 'b-text-media';
+$classes = 'b-text-media c-block';
 if ( ! empty( $block['className'] ) ) {
 	$classes .= ' ' . $block['className'];
 }

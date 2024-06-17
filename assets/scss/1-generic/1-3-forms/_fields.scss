@@ -2,8 +2,8 @@
 	@include tr;
 	width: 100%;
 	background-color: $w;
-	color: $b;
-	font-size: rem(16);
+	color: $color-text;
+	font-size: rem(15);
 	line-height: rem(16);
 	padding: rem(13 16);
 	border: rem(1) solid $grey-border;

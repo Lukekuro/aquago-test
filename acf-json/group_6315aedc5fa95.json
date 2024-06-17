@@ -333,8 +333,8 @@
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
-            "prepend": "© Obecny rok",
-            "append": ""
+            "prepend": "",
+            "append": "© Obecny rok, nazwa firmy"
         }
     ],
     "location": [
@@ -362,5 +362,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1718028952
+    "modified": 1718303610
 }

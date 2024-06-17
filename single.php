@@ -54,7 +54,7 @@ the_post();
 
 					<!-- // Share edit1 -->
 					<div class="share">
-						<h4><?php esc_html_e( 'Nie zapomnij udostępnić', '_it_start' ); ?></h4>
+						<h4><?php esc_html_e( 'Nie zapomnij udostępnić', 'aquago' ); ?></h4>
 
 						<?php 
 							$get_title = get_the_title();

@@ -51,20 +51,11 @@ if ( ! function_exists( 'itm_setup' ) ) :
 		 *
 		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
 		 */
-		//if you have (title  + ul) in footer then REMOVE IT - edit1
-		// register_nav_menus(
-		// 	[
-		// 		'main'   => esc_html__( 'Main Nav', 'aquago' ),
-		// 		'footer' => esc_html__( 'Footer Nav', 'aquago' ),
-		// 	]
-		// );
-
-		//if you have (title  + ul) in footer then use it - edit1
 		register_nav_menus(
 			[
 				'main'   => esc_html__( 'Main Nav', 'aquago' ),
-				'footer-1' => esc_html__( 'Footer 1', 'aquago' ),
-				'footer-2' => esc_html__( 'Footer 2', 'aquago' ),
+				'footer-menu' => esc_html__( 'Footer Menu', 'aquago' ),
+				'footer-conditions' => esc_html__( 'Footer Conditions', 'aquago' ),
 			]
 		);
 

@@ -1,22 +1,32 @@
 //Header
 .user-account {
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+
 	svg {
-		width: rem(15);
-		height: rem(20);
-		stroke: $color-text;
-		transition: stroke $time;
+		width: rem(14);
+		height: rem(18);
+		fill: $primary;
+		transition: fill $time;
 	}	 
 
 	@include hover {
 		svg {
-			stroke: $primary;
+			fill: $secondary;
 		}	
 	}
 
 	@include focus-active-max {
 		svg {
-			stroke: $primary;
+			fill: $secondary;
 		}	
+	}
+
+	.name-account {
+		display: flex;
+		gap: rem(3);
+		color: $color-text;
 	}
 }
 

@@ -102,6 +102,12 @@ function itm_tiny_mce_before_init_formats( $settings ) {
 					'wrapper'  => false,
 				],
 				[
+					'title'    => 'Przycisk (wtórny)',
+					'selector' => 'a',
+					'classes'  => 'btn btn-secondary',
+					'wrapper'  => false,
+				],
+				[
 					'title'    => 'Przycisk (zarys)',
 					'selector' => 'a',
 					'classes'  => 'btn btn-outline',
@@ -141,33 +147,21 @@ function itm_tiny_mce_before_init_formats( $settings ) {
 			'title' => 'Grubość',
 			'items' => [
 				[
-					'title'    => '300',
-					'selector' => 'p,h1,h2,h3,h4,h5,h6,a,li',
-					'classes'  => 'fw-300',
-					'wrapper'  => false,
-				],
-				[
 					'title'    => '400',
 					'selector' => 'p,h1,h2,h3,h4,h5,h6,a,li',
 					'classes'  => 'fw-400',
 					'wrapper'  => false,
 				],
 				[
-					'title'    => '500',
-					'selector' => 'p,h1,h2,h3,h4,h5,h6,a,li',
-					'classes'  => 'fw-500',
-					'wrapper'  => false,
-				],
-				[
-					'title'    => '600',
-					'selector' => 'p,h1,h2,h3,h4,h5,h6,a,li',
-					'classes'  => 'fw-600',
-					'wrapper'  => false,
-				],
-				[
 					'title'    => '700',
 					'selector' => 'p,h1,h2,h3,h4,h5,h6,a,li',
 					'classes'  => 'fw-700',
+					'wrapper'  => false,
+				],
+				[
+					'title'    => '800',
+					'selector' => 'p,h1,h2,h3,h4,h5,h6,a,li',
+					'classes'  => 'fw-800',
 					'wrapper'  => false,
 				],
 			],
@@ -198,7 +192,8 @@ function itm_tiny_mce_before_init_colors( $init ) {
 		'Czarne'    => '000',
 		'Białe'     => 'fff',
 		'Szare'     => 'ccc',
-		'Pierwotny' => 'b91c1c',
+		'Pierwotny' => '17648B',
+		'Wtórny'    => 'A8B693',
 	];
 
 	$textcolor_map = [];

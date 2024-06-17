@@ -26,7 +26,7 @@ require ITM_DIR . '/inc/disables.php'; // Disable of extra unwanted features.
 require ITM_DIR . '/inc/editor.php'; // Editor functions.
 require ITM_DIR . '/inc/gutenberg.php'; // Custom Gutenberg blocks and functions
 require ITM_DIR . '/inc/help-func.php'; // Helper functions.
-require ITM_DIR . '/inc/lazy-load.php'; // Images and iframes lazyload.
+// require ITM_DIR . '/inc/lazy-load.php'; // Images and iframes lazyload.
 require ITM_DIR . '/inc/login.php'; // Login screen customisation.
 require ITM_DIR . '/inc/scripts-styles.php'; // Scripts and styles enqueue | dequeue.
 require ITM_DIR . '/inc/svg-support.php'; // Adds support for SVG upload.

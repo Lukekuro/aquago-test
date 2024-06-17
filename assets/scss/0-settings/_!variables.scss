@@ -4,6 +4,8 @@ $primary-hover: darken($primary, 10%);
 $secondary: #A8B693;
 $secondary-hover: darken($secondary, 8%);
 $primary-light: #DCF0FF;
+$primary-dark: #0c212b;
+
 
 $blue-45: rgba(#557E93, .45);
 // Bootstrap v5.3.0 fix (dark mode support)
@@ -12,6 +14,7 @@ $enable-dark-mode: false;
 $b: #000;
 $w: #fff;
 $white-50: rgba($w, 0.5);
+$grey-light: #C6D2D6;
 $grey: #bdbdbd;
 $grey-border: #d0d0d0;
 
@@ -80,7 +83,7 @@ $container-max-widths: (
 	xs: 100%,
 	md: 100%,
 	lg: 100%,
-	xl: 1425px,
+	xl: 1420px,
 );
 
 // Container padding
@@ -107,6 +110,7 @@ $container-fluid-max-width: 1920px;
 		}
 	}
 
-	--header-height: #{rem(155)}; // needed for fixed header
+	--header-height: #{rem(154)}; // needed for fixed header
+	--header-height-mobile: #{rem(70)}; // needed for fixed header mobile
 	--header-scrolled-height: #{rem(102)}; // needed for fixed header
 }

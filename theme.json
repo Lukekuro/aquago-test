@@ -6,12 +6,12 @@
         {
           "name": "Podstawowy",
           "slug": "primary",
-          "color": "#1B1F99"
+          "color": "#17648B"
         },
         {
           "name": "Wtórny",
           "slug": "secondary",
-          "color": "#4DBBDD"
+          "color": "#A8B693"
         },
         {
           "name": "Biały",
@@ -21,17 +21,12 @@
         {
           "name":"Czarny (tekst)",
           "slug": "black-text",
-          "color": "#18181A"
-        },
-        {
-          "name": "Jasny niebieski",
-          "slug": "light-blue",
-          "color": "#F7F8FE"
+          "color": "#0E1A23"
         },
         {
           "name": "Szary",
           "slug": "grey",
-          "color": "#E0E0E0"
+          "color": "#bdbdbd"
         }
       ],
       "custom": false,
